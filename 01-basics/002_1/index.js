@@ -34,7 +34,7 @@ const App = {
     watch: {
         inputValue(value) {
             console.log("inputValueChanged", value)
-            if (value.length > 5) this.inputValue = ''
+            if (value.length > 10) this.inputValue = ''
         }
     }
 }
