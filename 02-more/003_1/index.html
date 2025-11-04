@@ -1,19 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Counter</title>
-  <link rel="stylesheet" href="theme.css" />
+    <meta charset = "UTF-8"/>
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
+    <title>Counter</title>
+    <link rel = "stylesheet" href = "theme.css"/>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<div class="container pt-5" id="app">
-  <div class="card center">
+<div class = "container pt-5" id = "app" v-cloak>
+    <div class = "card center">
+        <div v-html = "myHtml"></div>
+        <!--        <h2 v-text = "title"></h2>-->
+        <!--        <h2 v-once>{{ title }}</h2>-->
+        <!--        <h2 v-pre>{{ title }}</h2>-->
 
-  </div>
+
+        <!--        <button class = "btn"-->
+        <!--                @click = "title='Теперь я другое название'">-->
+        <!--            add new title-->
+        <!--        </button>-->
+
+        <ul class = "list" v-if = "items.length">
+            <!--            <li class = "list-item" v-for = "(item,index) in 7">-->
+            <!--                <strong>{{ index }}</strong> {{ item }}-->
+            <!--            </li>-->
+            <!--            <li class = "list-item" v-for = "(item,key) in person">-->
+            <!--                <strong>{{ key }}</strong> {{ item }}-->
+            <!--            </li>-->
+            <div class = "form-control">
+                <input type = "text" @keyup.enter = "addItem" ref = "inputRef">
+            </div>
+            <li
+                    class = "list-item"
+                    v-for = "(item,index) in items"
+                    @click = "items.splice(index,1)"
+            >
+                <strong>{{ item }}</strong> &nbsp;
+                <input
+                        type = "text"
+                        @click.stop
+                        :key = "item"
+                >
+            </li>
+        </ul>
+        <h3 v-show = "items.length===0">Элементов нет!</h3>
+    </div>
 </div>
 
-<script src="https://unpkg.com/vue@next"></script>
-<script src="app.js"></script>
+<script src = "https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src = "app.js"></script>
 </body>
 </html>
