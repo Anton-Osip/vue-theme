@@ -15,8 +15,7 @@
             <input
                     type = "text"
                     :placeholder = "placeholder"
-                    :value = "inputValue"
-                    @input = "inputChangeHandler($event)"
+                    v-model = "inputValue"
                     @keypress.enter = "addNewNote"
             >
         </div>
@@ -33,7 +32,7 @@
             </li>
             <hr>
             <li>
-                <strong>Общее количество: {{ notes.length}}</strong> | Удвоено: {{doubleCountComputed}}
+                <strong>Общее количество: {{ notes.length }}</strong> | Удвоено: {{ doubleCountComputed }}
             </li>
         </ul>
         <div v-else>Заметок нет. Добавьте первую!</div>
