@@ -1,10 +1,14 @@
 const App = {
     data() {
-        return {counter: 0, title: 'Счетчик'}
+        return {
+            title: 'Список заметок',
+            placeholder: 'Введите название заметки',
+            inputValue: ''
+        }
     },
     methods: {
-        increment: () => {
-            this.counter = this.counter + 1;
+        inputChangeHandler(event) {
+            this.inputValue=event.target.value
         }
     }
 }

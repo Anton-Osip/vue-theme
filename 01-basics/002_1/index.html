@@ -9,12 +9,23 @@
 <body>
 
 <div class = "container pt-5" id = "app">
-    <div class = "card center">
-        <h1>{{ title }}: {{ counter }}</h1>
-        <div>
-            <button class = "btn primary" v-on:click = "counter++">+</button>
-            <button class = "btn danger" v-on:click = "counter--">-</button>
+    <div class = "card">
+        <h1>{{ title }}</h1>
+        <div class = "form-control">
+            <input
+                    type = "text"
+                    v-bind:placeholder = "placeholder"
+                    v-bind:value = "inputValue"
+                    v-on:input = "inputChangeHandler($event)"
+            >
         </div>
+        <h2>inputValue: {{ inputValue }}</h2>
+        <button
+                class = "btn primary"
+                v-on:click = "counter++">
+            Добавить
+        </button>
+        <hr>
     </div>
 </div>
 
