@@ -11,12 +11,17 @@ const App = {
         inputChangeHandler(event) {
             this.inputValue = event.target.value
         },
-        addNewNote(){
-            this.notes.unshift(this.inputValue)
-            this.inputValue=''
+        addNewNote() {
+            if (this.inputValue !== '') {
+                this.notes.unshift(this.inputValue)
+                this.inputValue = ''
+            }
         },
-        removeNote(index){
-            this.notes.splice(index,1)
+        removeNote(index) {
+            this.notes.splice(index, 1)
+        },
+        toUpperCase(item) {
+            return item.toUpperCase()
         }
     }
 }
