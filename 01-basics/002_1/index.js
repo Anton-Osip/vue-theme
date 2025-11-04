@@ -14,7 +14,7 @@ const App = {
         addNewNote(){
             this.notes.unshift(this.inputValue)
             this.inputValue=''
-        }
+        },
     }
 }
 
