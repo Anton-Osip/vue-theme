@@ -33,6 +33,12 @@ const App = {
             console.log('doubleCountComputed')
             return this.notes.length * 2
         }
+    },
+    watch: {
+        inputValue(value) {
+            console.log("inputValueChanged", value)
+            if (value.length > 5) this.inputValue = ''
+        }
     }
 }
 
