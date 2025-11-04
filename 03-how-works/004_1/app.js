@@ -27,7 +27,33 @@ const app = Vue.createApp({
                 onClick: this.changeTitle
             }, 'изменить')
         ])
-    }
+    },
+    beforeCreate() {
+        console.log('beforeCreate')
+    },
+
+    created() {
+        console.log('created')
+    },
+
+    beforeMount() {
+        console.log('beforeMount')
+    },
+    mounted() {
+        console.log('mounted')
+    },
+    beforeUnmount() {
+        console.log('beforeUnmount')
+    },
+    unmounted() {
+        console.log('unmounted')
+    },
+    beforeUpdate() {
+        console.log('beforeUpdate')
+    },
+    updated() {
+        console.log('updated')
+    },
 })
 
 app.mount('#app')
