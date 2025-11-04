@@ -15,6 +15,9 @@ const App = {
             this.notes.unshift(this.inputValue)
             this.inputValue=''
         },
+        removeNote(index){
+            this.notes.splice(index,1)
+        }
     }
 }
 
