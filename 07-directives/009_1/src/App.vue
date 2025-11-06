@@ -1,32 +1,23 @@
 <template>
   <div class="container">
-    <app-alert
-        v-if="alert"
-        type="warning"
-        title="Внимание!"
-        text="Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-      Alias animi asperiores at cum, "
-        closable
-        @close="toggleAlert"
-    />
     <div class="card">
-      <button class="btn primary" @click="toggleAlert">{{ alert ? 'Скрыть' : 'Показать' }} сообщение</button>
+      <h2>Дириктивы</h2>
+      <div class="form-control">
+        <label for="inp">Активный по умолчанию</label>
+        <input v-focus type="text" id="inp">
+      </div>
     </div>
-
-    <app-block/>
   </div>
 </template>
 
 <script>
-import AppAlert from "@/components/AppAlert.vue";
-import AppBlock from "@/components/AppBlock.vue";
-import {alertMixin} from "@/alertMixin";
+
+import {focusDirective} from "@/focusDirectives";
 
 export default {
-  mixins: [alertMixin],
-  components: {
-    AppAlert, AppBlock
+  directives: {
+    focus: focusDirective
   }
 }
 </script>
-
+<style scoped></style>
