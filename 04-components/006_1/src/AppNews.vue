@@ -1,20 +1,20 @@
 <template>
-  <div class = "card">
+  <div class="card">
     <h2>{{ title }}</h2>
     <app-button
-        @action = "open"
-        >
-      {{isNewsOpen ? 'Закрыть' : 'Открыть'}}
+        @action="open"
+    >
+      {{ isNewsOpen ? 'Закрыть' : 'Открыть' }}
     </app-button>
     <app-button
-        v-if = "wasRead"
-        @action = "unmark"
-        color = "danger"
+        v-if="wasRead"
+        @action="unmark"
+        color="danger"
     >
       Отметить непрочитанной
     </app-button>
     <div
-        v-if = "isNewsOpen">
+        v-if="isNewsOpen">
       <hr>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -23,12 +23,13 @@
         temporibus totam ullam vero vitae?
       </p>
       <app-button
-          v-if = "!wasRead"
-          @action = "mark"
-          color = "primary"
+          v-if="!wasRead"
+          @action="mark"
+          color="primary"
       >
         Прочесть новость
       </app-button>
+      <app-news-list></app-news-list>
     </div>
   </div>
 </template>
@@ -36,6 +37,7 @@
 
 <script>
 import AppButton from "@/AppButton.vue";
+import AppNewsList from "@/AppNewsList.vue";
 
 export default {
   props: {
@@ -91,6 +93,6 @@ export default {
       this.$emit('unmark', this.id)
     }
   },
-  components: {'app-button': AppButton}
+  components: {AppButton, AppNewsList}
 }
 </script>
